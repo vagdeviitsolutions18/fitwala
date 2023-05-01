@@ -1,16 +1,65 @@
 package com.vagdeviitsol.fitwala;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="user")
 public class FUsers {
 	
+	public String getFistName() {
+		return fistName;
+	}
+	public void setFistName(String fistName) {
+		this.fistName = fistName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmailID() {
+		return emailID;
+	}
+	public void setEmailID(String emailID) {
+		this.emailID = emailID;
+	}
+	public long getMobileNo() {
+		return mobileNo;
+	}
+	public void setMobileNo(long mobileNo) {
+		this.mobileNo = mobileNo;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getGymName() {
+		return gymName;
+	}
+	public void setGymName(String gymName) {
+		this.gymName = gymName;
+	}
+	public int getPlanType() {
+		return planType;
+	}
+	public void setPlanType(int planType) {
+		this.planType = planType;
+	}
 	@Id
 	@Column(name="ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +72,7 @@ public class FUsers {
 	public void setId(long id) {
 		this.id = id;
 	}
-	@Column(name="FIST_NAME")
+	@Column(name="FISTNAME")
 	private String fistName;
 	
 	@Column(name="LASTNAME")
@@ -50,77 +99,7 @@ public class FUsers {
 	@Column(name="PLANTYPE")
     private int planType;
     
-    public String getfistName()
-    {
-    	return fistName;
-    }
-    public void setfistName(String fistname)
-    {
-    	this.fistName=fistname;
-    }
-    public  String getlateName()
-    {
-    	return lastName;
-    }
-    public void setlastName(String lastname)
-    {
-    	this.lastName=lastname;
-    }
-    public String getemailID()
-    {
-    	return emailID;
-    }
-    public void setemailID(String emailId)
-    {
-    	this.emailID=emailId;
-    }
-    public long getmobileNo()
-    {
-    	return mobileNo;
-    }
-    public void setmobileNo(long Mobileno)
-    {
-    	this.mobileNo=Mobileno;
-    }
-    public String getgender()
-    {
-    	return gender;
-    }
-    public void setgender(String gender)
-    {
-    	this.gender=gender;
-    }
-    public int getage()
-    {
-    	return age;
-    }
-    public void setage(int Age)
-    {
-    	this.age=Age;
-    }
-    public String getaddress()
-    {
-    	return address;
-    }
-    public void setaddress(String Address)
-    {
-    	this.address=Address;
-    }
-	public String getGymName() 
-	{
-		return gymName;
-	}
-	public void setGymName(String Gymname) 
-	{
-		this.gymName = Gymname;
-	}
-	public int getplanType() 
-	{
-		return planType;
-	}
-	public void setplanType(int Plantype) {
-		this.planType=Plantype;
-	}
+    
 	
 }
 
