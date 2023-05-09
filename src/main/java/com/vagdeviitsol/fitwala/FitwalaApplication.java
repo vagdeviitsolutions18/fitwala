@@ -9,5 +9,4 @@ public class FitwalaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FitwalaApplication.class, args);
 	}
-
 }
