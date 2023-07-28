@@ -66,7 +66,7 @@ public class UserServiceImpTest {
     @Test
     public void testGetUserById() {
         MockitoAnnotations.initMocks(this);
-        int userId = 1;
+        Long userId = 1L;
 
         Users expectedUser = new Users();
         expectedUser.setId(5);
@@ -91,7 +91,7 @@ public class UserServiceImpTest {
     @Test
     public void testGetUserByIdNotFound() {
         MockitoAnnotations.initMocks(this);
-        int userId = 1;
+        Long userId = 1L;
 
         when(userRepositoryMock.findById(userId)).thenReturn(Optional.empty());
 
@@ -103,7 +103,7 @@ public class UserServiceImpTest {
     @Test
     public void testUpdateUser() {
         MockitoAnnotations.initMocks(this);
-        int userId = 5;
+        Long userId = 5L;
         Users userToUpdate = new Users();
         userToUpdate.setFistName("Lingeswar");
         userToUpdate.setLastName("Reddy");
