@@ -18,7 +18,7 @@ public class Payment {
     private Double amount;
 
     @Column(name = "plan_type")
-    private Integer planType;
+    private int planType;
 
     @Column(name = "status")
     private String status;
@@ -52,7 +52,7 @@ public class Payment {
         return planType;
     }
 
-    public void setPlanType(Integer planType) {
+    public void setPlanType(int planType) {
         this.planType = planType;
     }
 

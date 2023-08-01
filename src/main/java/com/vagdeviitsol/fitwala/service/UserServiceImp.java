@@ -1,4 +1,4 @@
-package com.vagdeviitsol.fitwala;
+package com.vagdeviitsol.fitwala.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +7,10 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.vagdeviitsol.fitwala.model.Users;
+import com.vagdeviitsol.fitwala.repository.SearchRepositroy;
+import com.vagdeviitsol.fitwala.repository.UserRepository;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -51,23 +55,41 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public List<Users> getUsers(String searchQuery) {
-		String SELECT_GET_USER="SELECT * FROM fitwalaproject.customers where 1=1 ";
+		String SELECT_GET_USER="SELECT * FROM customers where 1=1 ";
 		JSONParser jsonParser=new JSONParser(); 
 		try {
 			JSONObject json = (JSONObject) jsonParser.parse(searchQuery);
 			System.out.println("firstname:"+json.get("fist_name"));
 			System.out.println("pla_type:"+json.get("planType"));
-			
+			System.out.println("Address:"+json.get("address"));
+			System.out.println("Age:"+json.get("age"));
+			System.out.println("Gender:"+json.get("gender"));
 			if(json.get("fistName") !=null) {
 				SELECT_GET_USER=SELECT_GET_USER+" and fist_name like '%"+json.get("fistName")+"%'";
 			}
 			if(json.get("planType")!=null) {
 				SELECT_GET_USER=SELECT_GET_USER+"and plan_type like '%"+json.get("planType")+"%'";
 			}
+			if(json.get("address")!= null) {
+				SELECT_GET_USER=SELECT_GET_USER+" and address like '%"+json.get("address")+"%'";	
+			}
+			if(json.get("age")!= null) {
+				SELECT_GET_USER=SELECT_GET_USER+" and age like '%"+json.get("age")+"%'";
+			}
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		return searchRepositroy.getUsers(SELECT_GET_USER);
-	} 
+	}
+
+	 @Override
+	    public List<Users> getAllUsers() {
+	        try {
+				return FitwalaRepo.findAll();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return null;
+	    }
 }

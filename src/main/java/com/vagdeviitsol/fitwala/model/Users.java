@@ -1,4 +1,4 @@
-package com.vagdeviitsol.fitwala;
+package com.vagdeviitsol.fitwala.model;
 
 import jakarta.persistence.*;
 
